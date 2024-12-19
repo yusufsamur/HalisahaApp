@@ -99,6 +99,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel.Designer.cs">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,11 +149,41 @@
     <Compile Include="Rezervasyon Ekle.Designer.cs">
       <DependentUpon>Rezervasyon Ekle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Saha İstatistikleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Saha İstatistikleri.Designer.cs">
+      <DependentUpon>Saha İstatistikleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SahaAboneliği.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SahaAboneliği.Designer.cs">
+      <DependentUpon>SahaAboneliği.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SahaBilgileriniGüncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SahaBilgileriniGüncelle.Designer.cs">
+      <DependentUpon>SahaBilgileriniGüncelle.cs</DependentUpon>
+    </Compile>
     <Compile Include="SahaEkle.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SahaEkle.Designer.cs">
       <DependentUpon>SahaEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SahaRezervasyonlarım.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SahaRezervasyonlarım.Designer.cs">
+      <DependentUpon>SahaRezervasyonlarım.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SahaRezervasyonlarınıGörüntüle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SahaRezervasyonlarınıGörüntüle.Designer.cs">
+      <DependentUpon>SahaRezervasyonlarınıGörüntüle.cs</DependentUpon>
     </Compile>
     <Compile Include="SahaSaatleri.cs">
       <SubType>Form</SubType>
@@ -155,6 +191,33 @@
     <Compile Include="SahaSaatleri.Designer.cs">
       <DependentUpon>SahaSaatleri.cs</DependentUpon>
     </Compile>
+    <Compile Include="SahaSahibiAnasayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SahaSahibiAnasayfa.Designer.cs">
+      <DependentUpon>SahaSahibiAnasayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SahaSahipleriniGörüntüle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SahaSahipleriniGörüntüle.Designer.cs">
+      <DependentUpon>SahaSahipleriniGörüntüle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ÜyeleriGörüntüle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ÜyeleriGörüntüle.Designer.cs">
+      <DependentUpon>ÜyeleriGörüntüle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ÜyeRezervasyonlarınıGörüntüle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ÜyeRezervasyonlarınıGörüntüle.Designer.cs">
+      <DependentUpon>ÜyeRezervasyonlarınıGörüntüle.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdminPanel.resx">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,11 +248,38 @@
     <EmbeddedResource Include="Rezervasyon Ekle.resx">
       <DependentUpon>Rezervasyon Ekle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Saha İstatistikleri.resx">
+      <DependentUpon>Saha İstatistikleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SahaAboneliği.resx">
+      <DependentUpon>SahaAboneliği.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SahaBilgileriniGüncelle.resx">
+      <DependentUpon>SahaBilgileriniGüncelle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SahaEkle.resx">
       <DependentUpon>SahaEkle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SahaRezervasyonlarım.resx">
+      <DependentUpon>SahaRezervasyonlarım.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SahaRezervasyonlarınıGörüntüle.resx">
+      <DependentUpon>SahaRezervasyonlarınıGörüntüle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SahaSaatleri.resx">
       <DependentUpon>SahaSaatleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SahaSahibiAnasayfa.resx">
+      <DependentUpon>SahaSahibiAnasayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SahaSahipleriniGörüntüle.resx">
+      <DependentUpon>SahaSahipleriniGörüntüle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ÜyeleriGörüntüle.resx">
+      <DependentUpon>ÜyeleriGörüntüle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ÜyeRezervasyonlarınıGörüntüle.resx">
+      <DependentUpon>ÜyeRezervasyonlarınıGörüntüle.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />

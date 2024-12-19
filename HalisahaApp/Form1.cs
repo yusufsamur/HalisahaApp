@@ -69,7 +69,7 @@ namespace HalisahaApp
             string kullaniciAdi = textBox1.Text;
             string sifre = textBox2.Text;
 
-            string connString = "Host=localhost;Username=postgres;Password=1234;Database=HaliSaha";
+            string connString = "Host=localhost;Username=postgres;Password=qweasdx123;Database=HaliSaha";
 
             using (NpgsqlConnection conn = new NpgsqlConnection(connString))
             {

@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace HalisahaApp
 {
-    public partial class SahaEkle : Form
+    public partial class SahaSahibiAnasayfa : Form
     {
-        public SahaEkle()
+        public SahaSahibiAnasayfa()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SahaSahibiAnasayfa_Load(object sender, EventArgs e)
         {
 
         }

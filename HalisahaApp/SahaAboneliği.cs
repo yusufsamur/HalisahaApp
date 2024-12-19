@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace HalisahaApp
 {
-    public partial class SahaEkle : Form
+    public partial class SahaAboneliği : Form
     {
-        public SahaEkle()
+        public SahaAboneliği()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

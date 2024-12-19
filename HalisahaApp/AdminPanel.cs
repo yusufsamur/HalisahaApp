@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace HalisahaApp
 {
-    public partial class SahaEkle : Form
+    public partial class AdminPanel : Form
     {
-        public SahaEkle()
+        public AdminPanel()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AdminPanel_Load(object sender, EventArgs e)
         {
 
         }
