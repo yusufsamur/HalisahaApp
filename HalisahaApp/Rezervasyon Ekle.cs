@@ -16,5 +16,10 @@ namespace HalisahaApp
         {
             InitializeComponent();
         }
+
+        private void Rezervasyon_Ekle_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

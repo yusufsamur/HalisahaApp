@@ -1,4 +1,5 @@
 ﻿using System;
+using Npgsql;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -65,7 +66,53 @@ namespace HalisahaApp
 
         private void girisyapbtn_Click(object sender, EventArgs e)
         {
-            
+            string kullaniciAdi = textBox1.Text;
+            string sifre = textBox2.Text;
+
+            string connString = "Host=localhost;Username=postgres;Password=1234;Database=HaliSaha";
+
+            using (NpgsqlConnection conn = new NpgsqlConnection(connString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Kullanıcıyı kontrol eden sorgu
+                    string query = "SELECT COUNT(*) FROM uyeler WHERE kullanici_adi = @kullaniciAdi AND sifre = @sifre";
+
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@kullaniciAdi", kullaniciAdi);
+                        cmd.Parameters.AddWithValue("@sifre", sifre);
+
+                        int userCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        if (userCount > 0)
+                        {
+                            MessageBox.Show("Giriş başarılı!");
+                            // Ana sayfayı göster
+                            KullaniciAnayasayfa anasayfa = new KullaniciAnayasayfa();
+                            anasayfa.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Kullanıcı adı veya şifre hatalı.", "Giriş Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message);
+                }
+            }
+        }
+
+        private void loginPanel_Load(object sender, EventArgs e)
+        {
+            NpgsqlConnection conn = new NpgsqlConnection("server=localHost; port=5432 ; Database=HaliSaha; " +
+                "user ID=postgres; password=1234");
+
         }
     }
 }

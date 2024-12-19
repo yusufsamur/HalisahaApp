@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace HalisahaApp
 {
-    public partial class KullaniciRezervasyonlarım : Form
+    public partial class KiralikOyuncuAl : Form
     {
-        public KullaniciRezervasyonlarım()
+        public KiralikOyuncuAl()
         {
             InitializeComponent();
-        }
-
-        private void KullaniciRezervasyonlarım_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
