@@ -19,7 +19,12 @@ namespace HalisahaApp
 
         private void KullaniciRezervasyonlarım_Load(object sender, EventArgs e)
         {
-
+            DatabaseHelper dbHelper = new DatabaseHelper();
+            DataTable reservations = dbHelper.GetReservationsByLoggedUser();
+            if (reservations != null)
+            {
+                dataGridView1.DataSource = reservations; // DataGridView'e bağlanıyor
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -55,6 +60,11 @@ namespace HalisahaApp
             loginPanel loginPanel = new loginPanel();
             this.Close();
             loginPanel.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

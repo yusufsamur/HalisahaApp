@@ -96,7 +96,7 @@ namespace HalisahaApp
                     MessageBox.Show("Üyelik türü bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                this.Close(); // Giriş ekranını gizle
+                this.Hide(); // Giriş ekranını gizle
             }
             else
             {

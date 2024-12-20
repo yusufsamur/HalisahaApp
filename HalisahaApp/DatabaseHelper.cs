@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 
 namespace HalisahaApp
 {
@@ -16,6 +17,10 @@ namespace HalisahaApp
         public void resetuserID() {
             loggedUserID = 0;
         }
+        public static int getuserID()
+        {
+
+        return loggedUserID; }
 
         public void setUserID(string kullaniciAdi, string sifre)
         {
@@ -125,6 +130,49 @@ namespace HalisahaApp
             }
 
         }
+
+        public DataTable GetReservationsByLoggedUser()
+        {
+            // loggedUserID'nin sıfır olmaması gerektiğini kontrol ediyoruz
+            if (loggedUserID == 0)
+            {
+                MessageBox.Show("Kullanıcı giriş yapmadı veya geçersiz kullanıcı ID'si!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Sorgu
+                    string query = @"SELECT rezervasyonid, uye_adi, sahaadi, saha_sehir, saha_ilce, baslangic_saati, bitis_saati, gun
+                             FROM reservation_view
+                             WHERE uye_id = @loggedUserID";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        // loggedUserID parametresini ekliyoruz
+                        cmd.Parameters.AddWithValue("@loggedUserID", loggedUserID);
+
+                        using (var adapter = new NpgsqlDataAdapter(cmd))
+                        {
+                            // Sonuçları doldurmak için bir DataTable oluşturuyoruz
+                            DataTable table = new DataTable();
+                            adapter.Fill(table);
+                            return table; // DataTable döndürülüyor
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+            }
+        }
+
 
 
 
