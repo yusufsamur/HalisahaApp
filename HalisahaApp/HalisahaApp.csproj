@@ -150,11 +150,11 @@
     <Compile Include="Rezervasyon Ekle.Designer.cs">
       <DependentUpon>Rezervasyon Ekle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Saha İstatistikleri.cs">
+    <Compile Include="SahaIstatistikleri.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Saha İstatistikleri.Designer.cs">
-      <DependentUpon>Saha İstatistikleri.cs</DependentUpon>
+    <Compile Include="SahaIstatistikleri.Designer.cs">
+      <DependentUpon>SahaIstatistikleri.cs</DependentUpon>
     </Compile>
     <Compile Include="SahaAboneliği.cs">
       <SubType>Form</SubType>
@@ -249,8 +249,8 @@
     <EmbeddedResource Include="Rezervasyon Ekle.resx">
       <DependentUpon>Rezervasyon Ekle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Saha İstatistikleri.resx">
-      <DependentUpon>Saha İstatistikleri.cs</DependentUpon>
+    <EmbeddedResource Include="SahaIstatistikleri.resx">
+      <DependentUpon>SahaIstatistikleri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SahaAboneliği.resx">
       <DependentUpon>SahaAboneliği.cs</DependentUpon>

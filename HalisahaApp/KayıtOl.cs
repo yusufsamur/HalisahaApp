@@ -86,6 +86,10 @@ namespace HalisahaApp
             }
         }
 
-
+        private void geributon_Click(object sender, EventArgs e)
+        {
+            parentForm.Show(); 
+            this.Close();
+        }
     }
 }

@@ -159,6 +159,7 @@
             this.geributon.TabIndex = 19;
             this.geributon.Text = "Geri Dön";
             this.geributon.UseVisualStyleBackColor = false;
+            this.geributon.Click += new System.EventHandler(this.geributon_Click);
             // 
             // comboBox1
             // 

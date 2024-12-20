@@ -21,5 +21,33 @@ namespace HalisahaApp
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            KullaniciRezervasyonlarım rezervasyonlarim = new KullaniciRezervasyonlarım();
+            this.Close();
+            rezervasyonlarim.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            KiralıkOyuncuIlan kiralıkOyuncuIlan = new KiralıkOyuncuIlan();
+            this.Close();
+            kiralıkOyuncuIlan.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            KiralikOyuncuAl kiralikOyuncuAl = new KiralikOyuncuAl();
+            this.Close();
+            kiralikOyuncuAl.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            loginPanel loginPanel = new loginPanel();
+            this.Close();
+            loginPanel.Show();
+        }
     }
 }

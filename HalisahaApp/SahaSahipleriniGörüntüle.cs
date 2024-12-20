@@ -16,5 +16,19 @@ namespace HalisahaApp
         {
             InitializeComponent();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SahaSahipleriniGörüntüle sahaSahipleriniGörüntüle = new SahaSahipleriniGörüntüle();
+            sahaSahipleriniGörüntüle.Show();
+            this.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ÜyeleriGörüntüle üyeleriGörüntüle = new ÜyeleriGörüntüle();
+            this.Close();
+            üyeleriGörüntüle.Show();
+        }
     }
 }

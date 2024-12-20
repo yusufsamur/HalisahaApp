@@ -65,17 +65,38 @@ namespace HalisahaApp
         {
             string kullaniciAdi = textBox1.Text;
             string sifre = textBox2.Text;
-
+            
             DatabaseHelper dbHelper = new DatabaseHelper();
 
             if (dbHelper.KullaniciDogrula(kullaniciAdi, sifre))
             {
-                MessageBox.Show("Giriş başarılı!");
-                // Ana sayfayı göster
+                string uyelikTuru = dbHelper.GetUyelikTuru(kullaniciAdi, sifre);
+                dbHelper.setUserID(kullaniciAdi,sifre);
 
-                KullaniciAnasayfa anasayfa = new KullaniciAnasayfa();
-                anasayfa.Show();
-                this.Hide();
+                if (uyelikTuru == "Oyuncu")
+                {
+                    MessageBox.Show("Giriş başarılı! Oyuncu sayfasına yönlendiriliyorsunuz.");
+                    KullaniciAnasayfa oyuncuAnasayfa = new KullaniciAnasayfa();
+                    oyuncuAnasayfa.Show();
+                }
+                else if (uyelikTuru == "Saha Yoneticisi")
+                {
+                    MessageBox.Show("Giriş başarılı! Saha yöneticisi sayfasına yönlendiriliyorsunuz.");
+                    SahaSahibiAnasayfa sahaAnasayfa = new SahaSahibiAnasayfa();
+                    sahaAnasayfa.Show();
+                }
+                else if(uyelikTuru == "admin") // admin ancak database üzerinden eklenebilecek
+                {
+                    MessageBox.Show("Giriş başarılı! Admin sayfasına yönlendiriliyorsunuz.");
+                    AdminPanel adminPanel = new AdminPanel();
+                    adminPanel.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Üyelik türü bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                this.Close(); // Giriş ekranını gizle
             }
             else
             {

@@ -43,7 +43,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -184,6 +183,7 @@
             this.button4.TabIndex = 14;
             this.button4.Text = "Kiralık Oyuncu Al";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -199,6 +199,7 @@
             this.button3.TabIndex = 13;
             this.button3.Text = "Çıkış";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -214,6 +215,7 @@
             this.button2.TabIndex = 12;
             this.button2.Text = "Kiralık Oyuncu Ol";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -229,6 +231,7 @@
             this.button1.TabIndex = 11;
             this.button1.Text = "Rezervasyonlarım";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -300,28 +303,12 @@
             this.comboBox4.Size = new System.Drawing.Size(105, 21);
             this.comboBox4.TabIndex = 19;
             // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Arial", 12.2F);
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button6.Location = new System.Drawing.Point(11, 341);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(179, 40);
-            this.button6.TabIndex = 21;
-            this.button6.Text = "Saha Ekle";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
             // KiralıkOyuncuIlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(946, 482);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.label4);
@@ -360,6 +347,5 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Button button6;
     }
 }

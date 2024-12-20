@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace HalisahaApp
 {
-    public partial class SahaBilgileriniGüncelle : Form
+    public partial class Saha_İstatistikleri : Form
     {
-        public SahaBilgileriniGüncelle()
+        public Saha_İstatistikleri()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SahaBilgileriniGüncelle_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button4_Click(object sender, EventArgs e)
