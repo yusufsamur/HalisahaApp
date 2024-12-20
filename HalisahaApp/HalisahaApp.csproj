@@ -105,6 +105,7 @@
     <Compile Include="AdminPanel.Designer.cs">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseHelper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,11 +130,11 @@
     <Compile Include="KiralıkOyuncuIlan.Designer.cs">
       <DependentUpon>KiralıkOyuncuIlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="KullaniciAnayasayfa.cs">
+    <Compile Include="KullaniciAnasayfa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KullaniciAnayasayfa.Designer.cs">
-      <DependentUpon>KullaniciAnayasayfa.cs</DependentUpon>
+    <Compile Include="KullaniciAnasayfa.Designer.cs">
+      <DependentUpon>KullaniciAnasayfa.cs</DependentUpon>
     </Compile>
     <Compile Include="KullaniciRezervasyonlarım.cs">
       <SubType>Form</SubType>
@@ -230,8 +231,8 @@
     <EmbeddedResource Include="KiralıkOyuncuIlan.resx">
       <DependentUpon>KiralıkOyuncuIlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KullaniciAnayasayfa.resx">
-      <DependentUpon>KullaniciAnayasayfa.cs</DependentUpon>
+    <EmbeddedResource Include="KullaniciAnasayfa.resx">
+      <DependentUpon>KullaniciAnasayfa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KullaniciRezervasyonlarım.resx">
       <DependentUpon>KullaniciRezervasyonlarım.cs</DependentUpon>

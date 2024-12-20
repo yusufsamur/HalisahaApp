@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HalisahaApp
 {
-    public partial class KullaniciAnayasayfa : Form
+    public partial class KullaniciAnasayfa : Form
     {
-        public KullaniciAnayasayfa()
+        public KullaniciAnasayfa()
         {
             InitializeComponent();
         }

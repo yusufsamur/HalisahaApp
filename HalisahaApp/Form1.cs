@@ -13,6 +13,7 @@ namespace HalisahaApp
 {
     public partial class loginPanel : Form
     {
+        
         public loginPanel()
         {
             InitializeComponent();
@@ -69,50 +70,32 @@ namespace HalisahaApp
             string kullaniciAdi = textBox1.Text;
             string sifre = textBox2.Text;
 
-            string connString = "Host=localhost;Username=postgres;Password=qweasdx123;Database=HaliSaha";
+            DatabaseHelper dbHelper = new DatabaseHelper();
 
-            using (NpgsqlConnection conn = new NpgsqlConnection(connString))
+            if (dbHelper.KullaniciDogrula(kullaniciAdi, sifre))
             {
-                try
-                {
-                    conn.Open();
-
-                    // Kullanıcıyı kontrol eden sorgu
-                    string query = "SELECT COUNT(*) FROM uyeler WHERE kullanici_adi = @kullaniciAdi AND sifre = @sifre";
-
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@kullaniciAdi", kullaniciAdi);
-                        cmd.Parameters.AddWithValue("@sifre", sifre);
-
-                        int userCount = Convert.ToInt32(cmd.ExecuteScalar());
-
-                        if (userCount > 0)
-                        {
-                            MessageBox.Show("Giriş başarılı!");
-                            // Ana sayfayı göster
-                            KullaniciAnayasayfa anasayfa = new KullaniciAnayasayfa();
-                            anasayfa.Show();
-                            this.Hide();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Kullanıcı adı veya şifre hatalı.", "Giriş Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Bir hata oluştu: " + ex.Message);
-                }
+                MessageBox.Show("Giriş başarılı!");
+                // Ana sayfayı göster
+                KullaniciAnasayfa anasayfa = new KullaniciAnasayfa();
+                anasayfa.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Kullanıcı adı veya şifre hatalı.", "Giriş Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void loginPanel_Load(object sender, EventArgs e)
         {
-            NpgsqlConnection conn = new NpgsqlConnection("server=localHost; port=5432 ; Database=HaliSaha; " +
-                "user ID=postgres; password=1234");
 
+        }
+
+        private void kayitolbtn_Click(object sender, EventArgs e)
+        {
+            KayıtOl kayitsayfa = new KayıtOl(this);
+            kayitsayfa.Show();
+            this.Hide();
         }
     }
 }
