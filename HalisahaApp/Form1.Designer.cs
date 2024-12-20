@@ -69,7 +69,6 @@
             this.label1.Size = new System.Drawing.Size(485, 35);
             this.label1.TabIndex = 2;
             this.label1.Text = "Halısaha Rezervasyon Uygulaması";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // girisyapbtn
             // 
@@ -126,6 +125,7 @@
             this.label4.Size = new System.Drawing.Size(39, 19);
             this.label4.TabIndex = 8;
             this.label4.Text = "Şifre";
+
             // 
             // fileSystemWatcher1
             // 

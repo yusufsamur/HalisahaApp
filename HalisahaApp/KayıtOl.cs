@@ -27,7 +27,7 @@ namespace HalisahaApp
         }
         private bool TelefonGecerliMi(string telNo)
         {
-            return telNo.Length == 10 && telNo.All(char.IsDigit); // En az 10 haneli ve sadece rakam olmalı
+            return telNo.Length == 10 && telNo.All(char.IsDigit); // 10 haneli ve sadece rakam olmalı
         }
 
         public KayıtOl()
@@ -41,6 +41,7 @@ namespace HalisahaApp
             string sifre = textBox2.Text;
             string eposta = textBox4.Text;
             string telNo = textBox3.Text;
+            string uyelikTuru = comboBox1.SelectedItem?.ToString(); // Seçilen üyelik türü
 
             if (string.IsNullOrWhiteSpace(kullaniciAdi) || string.IsNullOrWhiteSpace(sifre) || string.IsNullOrWhiteSpace(eposta) || string.IsNullOrWhiteSpace(telNo))
             {
@@ -56,20 +57,28 @@ namespace HalisahaApp
 
             if (!TelefonGecerliMi(telNo))
             {
-                MessageBox.Show("Geçerli bir telefon numarası girin (en az 10 rakam)!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Geçerli bir telefon numarası girin (10 rakam)!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Lütfen üyelik türünü seçin!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(uyelikTuru))
+            {
+                MessageBox.Show("Lütfen üyelik türünü seçin!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             DatabaseHelper dbHelper = new DatabaseHelper();
 
-            if (dbHelper.KullaniciEkle(kullaniciAdi, sifre, eposta, telNo))
+            if (dbHelper.KullaniciEkle(kullaniciAdi, sifre, eposta, telNo, uyelikTuru))
             {
-                MessageBox.Show("Kayıt başarılı! Giriş Sayfasına Yönlendiriliyorsunuz.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Anasayfayı göster
-                loginPanel form1 = new loginPanel();
-                form1.Show();
-                this.Hide(); // Kayıt ekranını gizle
+                MessageBox.Show("Kayıt başarılı! Giriş ekranına yönlendiriliyorsunuz.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                parentForm.Show(); // Form1'i geri göster
+                this.Close(); // KayıtOl formunu kapat
             }
             else
             {

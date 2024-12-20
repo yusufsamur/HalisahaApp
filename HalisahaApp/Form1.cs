@@ -18,10 +18,6 @@ namespace HalisahaApp
         {
             InitializeComponent();
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -76,6 +72,7 @@ namespace HalisahaApp
             {
                 MessageBox.Show("Giriş başarılı!");
                 // Ana sayfayı göster
+
                 KullaniciAnasayfa anasayfa = new KullaniciAnasayfa();
                 anasayfa.Show();
                 this.Hide();

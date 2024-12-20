@@ -36,17 +36,19 @@ namespace HalisahaApp
                     return false;
                 }
             }
+
+
         }
 
 
-        public bool KullaniciEkle(string kullaniciAdi, string sifre, string eposta, string telNo)
+        public bool KullaniciEkle(string kullaniciAdi, string sifre, string eposta, string telNo,string uyelikTuru)
         {
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
-                    string query = "INSERT INTO uyeler (kullanici_adi, sifre, eposta, tel_no) VALUES (@kullaniciAdi, @sifre, @eposta, @telNo)";
+                    string query = "INSERT INTO uyeler (kullanici_adi, sifre, eposta, tel_no, uyelik_turu) VALUES (@kullaniciAdi, @sifre, @eposta, @telNo, @uyelikTuru)";
 
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {
@@ -54,11 +56,10 @@ namespace HalisahaApp
                         cmd.Parameters.AddWithValue("@sifre", sifre);
                         cmd.Parameters.AddWithValue("@eposta", eposta);
                         cmd.Parameters.AddWithValue("@telNo", telNo);
+                        cmd.Parameters.AddWithValue("@uyelikTuru", uyelikTuru);
 
                         cmd.ExecuteNonQuery();
-                        
                         return true; // Başarıyla eklendi
-
                     }
                 }
                 catch (Exception ex)
@@ -67,6 +68,7 @@ namespace HalisahaApp
                     return false;
                 }
             }
+
         }
 
 
