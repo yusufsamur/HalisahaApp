@@ -76,9 +76,21 @@ namespace HalisahaApp
 
             if (dbHelper.KullaniciEkle(kullaniciAdi, sifre, eposta, telNo, uyelikTuru))
             {
-                MessageBox.Show("Kayıt başarılı! Giriş ekranına yönlendiriliyorsunuz.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                parentForm.Show(); // Form1'i geri göster
-                this.Close(); // KayıtOl formunu kapat
+                if(uyelikTuru=="Saha Yoneticisi")
+                {
+                    SahaEkle sahaekle = new SahaEkle();
+                    dbHelper.setUserID(kullaniciAdi,sifre);
+                    sahaekle.Show();
+                    this.Close();
+
+                }
+                else
+                {
+                    MessageBox.Show("Kayıt başarılı! Giriş ekranına yönlendiriliyorsunuz.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    parentForm.Show(); // Form1'i geri göster
+                    this.Close(); // KayıtOl formunu kapat
+                }
+
             }
             else
             {

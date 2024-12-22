@@ -55,7 +55,7 @@ namespace HalisahaApp
         private void button5_Click(object sender, EventArgs e)
         {
             DatabaseHelper dbHelper = new DatabaseHelper();
-            int sahaid = dbHelper.GetSahaID(comboBox1.SelectedValue.ToString(), comboBox2.SelectedValue.ToString(), comboBox3.SelectedValue.ToString());
+            int sahaid = dbHelper.GetSahaID(comboBox1.SelectedItem?.ToString(), comboBox2.SelectedItem?.ToString(), comboBox3.SelectedItem?.ToString());
             SahaSaatleri sahaSaatleri = new SahaSaatleri(sahaid);
             this.Close();
             sahaSaatleri.Show();

@@ -328,6 +328,35 @@ namespace HalisahaApp
             }
         }
 
+        public bool AddSaha(string sehir, string ilce, string sahaAdi)
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                INSERT INTO sahalar (saha_sehir, saha_ilce, sahaadi, saha_yonetici_id) 
+                VALUES (@sehir, @ilce, @sahaAdi, @yoneticiId)";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@sehir", sehir);
+                        cmd.Parameters.AddWithValue("@ilce", ilce);
+                        cmd.Parameters.AddWithValue("@sahaAdi", sahaAdi);
+                        cmd.Parameters.AddWithValue("@yoneticiId", loggedUserID);
+
+                        cmd.ExecuteNonQuery();
+                        return true; // Başarıyla eklendi
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+        }
 
 
 

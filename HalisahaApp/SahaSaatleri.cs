@@ -81,8 +81,8 @@ namespace HalisahaApp
 
             // Saat aralığını ayır ve dönüştür
             var saatler = selectedSaatAraligi.Split('-');
-            TimeSpan baslangicSaati = TimeSpan.Parse(saatler[0]);
-            TimeSpan bitisSaati = TimeSpan.Parse(saatler[1]);
+            TimeSpan baslangicSaati = TimeSpan.Parse(saatler[0]+":00");
+            TimeSpan bitisSaati = TimeSpan.Parse(saatler[1] + ":00");
 
             DatabaseHelper dbHelper = new DatabaseHelper();
 
