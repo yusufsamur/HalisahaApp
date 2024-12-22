@@ -173,6 +173,161 @@ namespace HalisahaApp
             }
         }
 
+        public List<string> IlceleriGetir(string sehir)
+        {
+            List<string> ilceler = new List<string>();
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT DISTINCT saha_ilce FROM sahalar WHERE saha_sehir = @sehir";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@sehir", sehir);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                ilceler.Add(reader.GetString(0));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            return ilceler;
+        }
+
+        public int GetSahaID(string sehir, string ilce, string sahaadi)
+        {
+            int sahaid = -1; // Varsayılan olarak -1 döndürülür, böylece hata durumunda ayırt edilebilir.
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT sahaid FROM sahalar WHERE saha_ilce = @ilce AND saha_sehir = @sehir AND sahaadi = @sahaadi";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@sehir", sehir);
+                        cmd.Parameters.AddWithValue("@ilce", ilce);
+                        cmd.Parameters.AddWithValue("@sahaadi", sahaadi);
+
+                        var result = cmd.ExecuteScalar();
+                        if (result != null && int.TryParse(result.ToString(), out int id))
+                        {
+                            sahaid = id;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            return sahaid;
+        }
+
+        public List<string> SahalariGetir(string ilce)
+        {
+            List<string> sahalar = new List<string>();
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT sahaadi FROM sahalar WHERE saha_ilce = @ilce";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ilce", ilce);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                sahalar.Add(reader.GetString(0));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            return sahalar;
+        }
+
+        public DataTable GetRezervasyonlar(int sahaId, DateTime tarih)
+        {
+            DataTable rezervasyonlar = new DataTable();
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                SELECT baslangic_saati, bitis_saati 
+                FROM rezervasyonlar 
+                WHERE sahaid = @sahaId AND gun = @tarih";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@sahaId", sahaId);
+                        cmd.Parameters.AddWithValue("@tarih", tarih);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            rezervasyonlar.Load(reader);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            return rezervasyonlar;
+        }
+
+        public bool AddRezervasyon(int sahaId, DateTime tarih, TimeSpan baslangicSaati, TimeSpan bitisSaati)
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                INSERT INTO rezervasyonlar (sahaid, uyeid, baslangic_saati, bitis_saati, gun)
+                VALUES (@sahaId, @uyeId, @baslangicSaati, @bitisSaati, @tarih)";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@sahaId", sahaId);
+                        cmd.Parameters.AddWithValue("@uyeId", loggedUserID);
+                        cmd.Parameters.AddWithValue("@baslangicSaati", baslangicSaati);
+                        cmd.Parameters.AddWithValue("@bitisSaati", bitisSaati);
+                        cmd.Parameters.AddWithValue("@tarih", tarih);
+
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+        }
+
 
 
 

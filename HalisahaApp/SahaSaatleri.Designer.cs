@@ -50,7 +50,7 @@
             this.button4.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button4.Location = new System.Drawing.Point(9, 267);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(157, 40);
             this.button4.TabIndex = 18;
@@ -66,7 +66,7 @@
             this.button3.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button3.Location = new System.Drawing.Point(9, 401);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(157, 40);
             this.button3.TabIndex = 17;
@@ -82,7 +82,7 @@
             this.button1.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.Location = new System.Drawing.Point(9, 126);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(157, 40);
             this.button1.TabIndex = 15;
@@ -98,7 +98,7 @@
             this.button2.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button2.Location = new System.Drawing.Point(9, 195);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(157, 40);
             this.button2.TabIndex = 16;
@@ -110,7 +110,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(210, 29);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -120,7 +120,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(588, 347);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(175, 20);
             this.dateTimePicker1.TabIndex = 20;
@@ -142,89 +142,19 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Adana",
-            "Adıyaman",
-            "Afyonkarahisar",
-            "Ağrı",
-            "Aksaray",
-            "Amasya",
-            "Ankara",
-            "Antalya",
-            "Ardahan",
-            "Artvin",
-            "Aydın",
-            "Balıkesir",
-            "Bartın",
-            "Batman",
-            "Bayburt",
-            "Bilecik",
-            "Bingöl",
-            "Bitlis",
-            "Bolu",
-            "Burdur",
-            "Bursa",
-            "Çanakkale",
-            "Çankırı",
-            "Çorum",
-            "Denizli",
-            "Diyarbakır",
-            "Düzce",
-            "Edirne",
-            "Elazığ",
-            "Erzincan",
-            "Erzurum",
-            "Eskişehir",
-            "Gaziantep",
-            "Giresun",
-            "Gümüşhane",
-            "Hakkari",
-            "Hatay",
-            "Iğdır",
-            "Isparta",
-            "İstanbul",
-            "İzmir",
-            "Kahramanmaraş",
-            "Karabük",
-            "Karaman",
-            "Kars",
-            "Kastamonu",
-            "Kayseri",
-            "Kırıkkale",
-            "Kırklareli",
-            "Kırşehir",
-            "Kilis",
-            "Kocaeli",
-            "Konya",
-            "Kütahya",
-            "Malatya",
-            "Manisa",
-            "Mardin",
-            "Mersin",
-            "Muğla",
-            "Muş",
-            "Nevşehir",
-            "Niğde",
-            "Ordu",
-            "Osmaniye",
-            "Rize",
-            "Sakarya",
-            "Samsun",
-            "Şanlıurfa",
-            "Siirt",
-            "Sinop",
-            "Sivas",
-            "Şırnak",
-            "Tekirdağ",
-            "Tokat",
-            "Trabzon",
-            "Tunceli",
-            "Uşak",
-            "Van",
-            "Yalova",
-            "Yozgat",
-            "Zonguldak"});
+            "11.00-12.00",
+            "12.00-13.00",
+            "14.00-15.00",
+            "15.00-16.00",
+            "16.00-17.00",
+            "17.00-18.00",
+            "18.00-19.00",
+            "19.00-20.00",
+            "20.00-21.00",
+            "21.00-22.00",
+            "22.00-23.00"});
             this.comboBox1.Location = new System.Drawing.Point(820, 345);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(105, 21);
             this.comboBox1.TabIndex = 22;
@@ -249,12 +179,13 @@
             this.button5.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button5.Location = new System.Drawing.Point(496, 445);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(157, 27);
             this.button5.TabIndex = 24;
             this.button5.Text = "Kaydet";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // SahaSaatleri
             // 
@@ -273,7 +204,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SahaSaatleri";
             this.Text = "Saha Saatleri";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
