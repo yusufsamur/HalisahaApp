@@ -31,7 +31,7 @@ namespace HalisahaApp
 
 
             int selectedSahaId = sahaid;
-            DateTime selectedDate = dateTimePicker1.Value;
+            DateTime selectedDate = dateTimePicker1.Value.Date;
 
             DatabaseHelper dbHelper = new DatabaseHelper();
             DataTable rezervasyonlar = dbHelper.GetRezervasyonlar(selectedSahaId, selectedDate);
@@ -107,6 +107,11 @@ namespace HalisahaApp
                 MessageBox.Show("Rezervasyon başarıyla oluşturuldu.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dateTimePicker1_ValueChanged(null, null); // Listeyi güncelle
             }
+        }
+
+        private void SahaSaatleri_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

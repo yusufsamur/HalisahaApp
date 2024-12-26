@@ -131,12 +131,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(460, 7);
+            this.label1.Location = new System.Drawing.Point(414, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(301, 22);
+            this.label1.Size = new System.Drawing.Size(349, 22);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Seçilen Günün Rezervasyonları";
+            this.label1.Text = "Seçilen Günün Dolu Rezervasyonları";
             // 
             // comboBox1
             // 
@@ -208,6 +208,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SahaSaatleri";
             this.Text = "Saha Saatleri";
+            this.Load += new System.EventHandler(this.SahaSaatleri_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
