@@ -41,8 +41,6 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label3
@@ -168,6 +166,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(105, 21);
             this.comboBox1.TabIndex = 7;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button4
             // 
@@ -249,6 +248,19 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "11:00-12:00",
+            "12:00-13:00",
+            "13:00-14:00",
+            "14:00-15:00",
+            "15:00-16:00",
+            "16:00-17:00",
+            "17:00-18:00",
+            "18:00-19:00",
+            "19:00-20:00",
+            "20:00-21:00",
+            "21:00-22:00",
+            "22:00-23:00"});
             this.comboBox3.Location = new System.Drawing.Point(569, 265);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox3.Name = "comboBox3";
@@ -269,6 +281,7 @@
             this.button5.TabIndex = 17;
             this.button5.Text = "İlan Ver";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label4
             // 
@@ -282,35 +295,12 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "Kiralık oyuncu olmak için ilan verin";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(431, 302);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 28);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Pozisyon";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(569, 309);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(105, 21);
-            this.comboBox4.TabIndex = 19;
-            // 
             // KiralıkOyuncuIlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(946, 482);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label1);
@@ -345,7 +335,5 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox4;
     }
 }

@@ -48,7 +48,7 @@
             this.button4.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button4.Location = new System.Drawing.Point(9, 113);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(179, 40);
             this.button4.TabIndex = 32;
@@ -64,7 +64,7 @@
             this.button1.Font = new System.Drawing.Font("Arial", 12F);
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.Location = new System.Drawing.Point(9, 301);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(179, 40);
             this.button1.TabIndex = 31;
@@ -80,7 +80,7 @@
             this.button2.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button2.Location = new System.Drawing.Point(9, 236);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(179, 40);
             this.button2.TabIndex = 30;
@@ -96,7 +96,7 @@
             this.button5.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button5.Location = new System.Drawing.Point(9, 173);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(179, 40);
             this.button5.TabIndex = 29;
@@ -112,7 +112,7 @@
             this.button3.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button3.Location = new System.Drawing.Point(9, 423);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(157, 40);
             this.button3.TabIndex = 28;
@@ -124,7 +124,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(217, 37);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -152,12 +152,13 @@
             this.button6.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button6.Location = new System.Drawing.Point(739, 420);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(199, 43);
             this.button6.TabIndex = 35;
             this.button6.Text = "Seçili Rezervasyonu Sil";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // SahaRezervasyonlarım
             // 
@@ -174,7 +175,7 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SahaRezervasyonlarım";
             this.Text = "SahaRezervasyonlarım";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

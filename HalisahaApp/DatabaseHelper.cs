@@ -357,7 +357,81 @@ namespace HalisahaApp
                 }
             }
         }
+        public bool AddKiralikOyuncuIlan(string sehir, string ilce, DateTime tarih, TimeSpan baslangicSaati, TimeSpan bitisSaati)
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                INSERT INTO kiralikoyuncular (uyeid, baslangic_saati, bitis_saati, gun, sehir, ilce)
+                VALUES (@uyeId, @baslangicSaati, @bitisSaati, @tarih, @sehir, @ilce)";
 
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@uyeId", loggedUserID);
+                        cmd.Parameters.AddWithValue("@baslangicSaati", baslangicSaati);
+                        cmd.Parameters.AddWithValue("@bitisSaati", bitisSaati);
+                        cmd.Parameters.AddWithValue("@tarih", tarih);
+                        cmd.Parameters.AddWithValue("@sehir", sehir);
+                        cmd.Parameters.AddWithValue("@ilce", ilce);
+
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+        }
+
+        public DataTable GetKiralikOyuncular(string sehir, string ilce, string saatAraligi)
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                SELECT 
+                    u.kullanici_adi as ""Kullanıcı Adı"",
+                    u.tel_no as ""Telefon"",
+                    u.eposta as ""E-posta"",
+                    k.gun as ""Tarih""
+                FROM kiralikoyuncular k
+                INNER JOIN uyeler u ON k.uyeid = u.uyeid
+                WHERE k.sehir = @sehir 
+                AND k.ilce = @ilce
+                AND k.baslangic_saati::text = @baslangicSaati";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@sehir", sehir);
+                        cmd.Parameters.AddWithValue("@ilce", ilce);
+
+                        // Parse the time range (e.g., "11:00-12:00")
+                        string baslangicSaati = saatAraligi.Split('-')[0].Trim()+":00";
+                        cmd.Parameters.AddWithValue("@baslangicSaati", baslangicSaati);
+
+                        using (var adapter = new NpgsqlDataAdapter(cmd))
+                        {
+                            DataTable table = new DataTable();
+                            adapter.Fill(table);
+                            return table;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+            }
+        }
 
 
     }

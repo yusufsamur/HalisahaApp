@@ -41,8 +41,6 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -68,12 +66,13 @@
             this.button5.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button5.Location = new System.Drawing.Point(268, 348);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(199, 43);
             this.button5.TabIndex = 29;
             this.button5.Text = "Oyuncu Ara";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label1
             // 
@@ -90,8 +89,21 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "11:00-12:00",
+            "12:00-13:00",
+            "13:00-14:00",
+            "14:00-15:00",
+            "15:00-16:00",
+            "16:00-17:00",
+            "17:00-18:00",
+            "18:00-19:00",
+            "19:00-20:00",
+            "20:00-21:00",
+            "21:00-22:00",
+            "22:00-23:00"});
             this.comboBox3.Location = new System.Drawing.Point(356, 251);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(105, 21);
             this.comboBox3.TabIndex = 27;
@@ -104,7 +116,7 @@
             this.button4.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button4.Location = new System.Drawing.Point(11, 270);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(179, 40);
             this.button4.TabIndex = 26;
@@ -120,7 +132,7 @@
             this.button3.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button3.Location = new System.Drawing.Point(11, 404);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(157, 40);
             this.button3.TabIndex = 25;
@@ -136,7 +148,7 @@
             this.button2.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button2.Location = new System.Drawing.Point(11, 198);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(179, 40);
             this.button2.TabIndex = 24;
@@ -152,7 +164,7 @@
             this.button1.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.Location = new System.Drawing.Point(11, 129);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(179, 40);
             this.button1.TabIndex = 23;
@@ -176,7 +188,7 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(356, 213);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(105, 21);
             this.comboBox2.TabIndex = 21;
@@ -279,31 +291,11 @@
             "Yozgat",
             "Zonguldak"});
             this.comboBox1.Location = new System.Drawing.Point(356, 172);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(105, 21);
             this.comboBox1.TabIndex = 19;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(218, 284);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 28);
-            this.label5.TabIndex = 32;
-            this.label5.Text = "Pozisyon";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(356, 291);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(105, 21);
-            this.comboBox4.TabIndex = 31;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
@@ -334,8 +326,6 @@
             this.ClientSize = new System.Drawing.Size(946, 482);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label1);
@@ -371,8 +361,6 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label6;
     }
