@@ -85,6 +85,7 @@
             this.button3.TabIndex = 35;
             this.button3.Text = "Çıkış";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dataGridView1
             // 
@@ -123,6 +124,7 @@
             this.button6.TabIndex = 45;
             this.button6.Text = "Seçili Saha Rezervasyonlarını Görüntüle";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button1
             // 
@@ -138,6 +140,7 @@
             this.button1.TabIndex = 46;
             this.button1.Text = "Seçili Saha Sahibini Sil";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // SahaSahipleriniGörüntüle
             // 
@@ -156,6 +159,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SahaSahipleriniGörüntüle";
             this.Text = "Saha Sahiplerini Görüntüle";
+            this.Load += new System.EventHandler(this.SahaSahipleriniGörüntüle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

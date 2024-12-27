@@ -734,5 +734,65 @@ namespace HalisahaApp
             }
         }
 
+        public DataTable GetSahaSahipleri()
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                SELECT 
+                    u.uyeid, 
+                    u.kullanici_adi, 
+                    u.eposta, 
+                    u.tel_no, 
+                    s.sahaid, 
+                    s.sahaadi
+                FROM uyeler u
+                INNER JOIN sahalar s ON u.uyeid = s.saha_yonetici_id";
+
+                    using (var adapter = new NpgsqlDataAdapter(query, conn))
+                    {
+                        DataTable sahaSahipleriTable = new DataTable();
+                        adapter.Fill(sahaSahipleriTable);
+                        return sahaSahipleriTable;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Hata: " + ex.Message);
+                    return null;
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

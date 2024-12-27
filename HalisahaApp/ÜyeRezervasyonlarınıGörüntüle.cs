@@ -95,5 +95,12 @@ namespace HalisahaApp
                 MessageBox.Show("Lütfen silmek için bir rezervasyon seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            loginPanel loginPanel = new loginPanel();
+            this.Close();
+            loginPanel.Show();
+        }
     }
 }
