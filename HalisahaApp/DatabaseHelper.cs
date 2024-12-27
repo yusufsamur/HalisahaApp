@@ -643,5 +643,96 @@ namespace HalisahaApp
             }
         }
 
+        public DataTable GetUyeler()
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                SELECT * FROM uyeler
+                WHERE uyelik_turu = 'Oyuncu';";
+
+
+                    using (var adapter = new NpgsqlDataAdapter(query, conn))
+                    {
+                        DataTable reservationsTable = new DataTable();
+                        adapter.Fill(reservationsTable);
+                        return reservationsTable;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Rezervasyonlar getirilirken bir hata oluştu: " + ex.Message,
+                                  "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+            }
+        }
+        public bool DeleteUser(int uyeID)
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "DELETE FROM uyeler WHERE uyeid = @uyeid";
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@uyeid", uyeID);
+                        int affectedRows = cmd.ExecuteNonQuery();
+                        return affectedRows > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Hata durumunda işlem başarısız
+                    return false;
+                }
+            }
+        }
+        public DataTable GetReservationsByUyeID(int uyeID)
+        {
+            // loggedUserID'nin sıfır olmaması gerektiğini kontrol ediyoruz
+            if (loggedUserID == 0)
+            {
+                MessageBox.Show("Kullanıcı giriş yapmadı veya geçersiz kullanıcı ID'si!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Sorgu
+                    string query = @"SELECT rezervasyonid, uye_adi, sahaadi, saha_sehir, saha_ilce, baslangic_saati, bitis_saati, gun
+                             FROM reservation_view
+                             WHERE uye_id = @uyeID";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        // loggedUserID parametresini ekliyoruz
+                        cmd.Parameters.AddWithValue("@uyeID", uyeID);
+
+                        using (var adapter = new NpgsqlDataAdapter(cmd))
+                        {
+                            // Sonuçları doldurmak için bir DataTable oluşturuyoruz
+                            DataTable table = new DataTable();
+                            adapter.Fill(table);
+                            return table; // DataTable döndürülüyor
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+            }
+        }
+
     }
 }
