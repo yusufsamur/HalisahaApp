@@ -84,6 +84,7 @@ namespace HalisahaApp
                     MessageBox.Show("Giriş başarılı! Saha yöneticisi sayfasına yönlendiriliyorsunuz.");
                     SahaSahibiAnasayfa sahaAnasayfa = new SahaSahibiAnasayfa();
                     sahaAnasayfa.Show();
+
                 }
                 else if(uyelikTuru == "admin") // admin ancak database üzerinden eklenebilecek
                 {

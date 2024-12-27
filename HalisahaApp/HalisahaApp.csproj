@@ -150,18 +150,6 @@
     <Compile Include="Rezervasyon Ekle.Designer.cs">
       <DependentUpon>Rezervasyon Ekle.cs</DependentUpon>
     </Compile>
-    <Compile Include="SahaIstatistikleri.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SahaIstatistikleri.Designer.cs">
-      <DependentUpon>SahaIstatistikleri.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SahaAboneliği.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SahaAboneliği.Designer.cs">
-      <DependentUpon>SahaAboneliği.cs</DependentUpon>
-    </Compile>
     <Compile Include="SahaBilgileriniGüncelle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,12 +236,6 @@
     </Compile>
     <EmbeddedResource Include="Rezervasyon Ekle.resx">
       <DependentUpon>Rezervasyon Ekle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SahaIstatistikleri.resx">
-      <DependentUpon>SahaIstatistikleri.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SahaAboneliği.resx">
-      <DependentUpon>SahaAboneliği.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SahaBilgileriniGüncelle.resx">
       <DependentUpon>SahaBilgileriniGüncelle.cs</DependentUpon>

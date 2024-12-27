@@ -34,19 +34,6 @@ namespace HalisahaApp
             rezervasyonlarım.Show();
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Saha_İstatistikleri saha_İstatistikleri = new Saha_İstatistikleri();
-            this.Hide();
-            saha_İstatistikleri.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            SahaAboneliği saha_Aboneligi = new SahaAboneliği();
-            this.Hide();
-            saha_Aboneligi.Show();
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {

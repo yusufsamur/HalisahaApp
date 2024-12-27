@@ -413,7 +413,6 @@ namespace HalisahaApp
                         cmd.Parameters.AddWithValue("@sehir", sehir);
                         cmd.Parameters.AddWithValue("@ilce", ilce);
 
-                        // Parse the time range (e.g., "11:00-12:00")
                         string baslangicSaati = saatAraligi.Split('-')[0].Trim()+":00";
                         cmd.Parameters.AddWithValue("@baslangicSaati", baslangicSaati);
 
@@ -432,7 +431,100 @@ namespace HalisahaApp
                 }
             }
         }
+        public int GetSahaIdByUyeId()
+        {
+            int sahaid = -1; // Default return value if no saha is found
 
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT sahaid FROM sahalar WHERE saha_yonetici_id = @uyeid";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@uyeid", loggedUserID);
+
+                        var result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            sahaid = Convert.ToInt32(result);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            return sahaid;
+        }
+        public DataTable GetSahaReservations(int sahaId)
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                SELECT 
+                    r.rezervasyonid as ""Rezervasyon ID"",
+                    u.kullanici_adi as ""Müşteri Adı"",
+                    u.tel_no as ""Telefon"",
+                    r.gun as ""Tarih"",
+                    r.baslangic_saati as ""Başlangıç Saati"",
+                    r.bitis_saati as ""Bitiş Saati"",
+                    s.sahaadi as ""Saha Adı""
+                FROM rezervasyonlar r
+                INNER JOIN uyeler u ON r.uyeid = u.uyeid
+                INNER JOIN sahalar s ON r.sahaid = s.sahaid
+                WHERE r.sahaid = @sahaId
+                ORDER BY r.gun, r.baslangic_saati";
+
+                    using (var adapter = new NpgsqlDataAdapter(query, conn))
+                    {
+                        adapter.SelectCommand.Parameters.AddWithValue("@sahaId", sahaId);
+
+                        DataTable reservationsTable = new DataTable();
+                        adapter.Fill(reservationsTable);
+                        return reservationsTable;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Rezervasyonlar getirilirken bir hata oluştu: " + ex.Message,
+                                  "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+            }
+        }
+
+        public bool DeleteReservation(int rezervasyonId)
+{
+    using (var conn = new NpgsqlConnection(connectionString))
+    {
+        try
+        {
+            conn.Open();
+            string query = "DELETE FROM rezervasyonlar WHERE rezervasyonid = @rezervasyonId";
+
+            using (var cmd = new NpgsqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@rezervasyonId", rezervasyonId);
+                int affectedRows = cmd.ExecuteNonQuery();
+                return affectedRows > 0;
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Rezervasyon silinirken bir hata oluştu: " + ex.Message, 
+                          "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+        }
+    }
+}
 
     }
 }

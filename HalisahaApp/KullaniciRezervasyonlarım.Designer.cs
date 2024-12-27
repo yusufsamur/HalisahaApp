@@ -126,7 +126,7 @@
             this.button5.Location = new System.Drawing.Point(710, 401);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(199, 43);
+            this.button5.Size = new System.Drawing.Size(199, 58);
             this.button5.TabIndex = 9;
             this.button5.Text = "Rezervasyon Ekle";
             this.button5.UseVisualStyleBackColor = false;
@@ -142,7 +142,7 @@
             this.button6.Location = new System.Drawing.Point(466, 401);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(199, 43);
+            this.button6.Size = new System.Drawing.Size(199, 58);
             this.button6.TabIndex = 10;
             this.button6.Text = "Seçili Rezervasyonu Sil";
             this.button6.UseVisualStyleBackColor = false;
