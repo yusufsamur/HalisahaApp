@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace HalisahaApp
 {
@@ -614,7 +615,33 @@ namespace HalisahaApp
                 }
             }
         }
+        public bool SilRezervasyon(int rezervasyonId)
+        {
+            try
+            {
+                using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                {
+                    conn.Open(); // Bağlantıyı aç
+                    string query = "DELETE FROM rezervasyonlar WHERE rezervasyonid = @RezervasyonID"; // Silme sorgusu
 
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                    {
+                        // Parametreyi ekleyin
+                        cmd.Parameters.AddWithValue("@RezervasyonID", rezervasyonId);
+
+                        // Sorguyu çalıştır ve etkilenen satır sayısını kontrol et
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        return rowsAffected > 0; // Eğer satır silindiyse, true döndür
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Hata: " + ex.Message);
+                return false;
+            }
+        }
 
     }
 }
