@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,21 @@ namespace HalisahaApp
 
         private void SahaBilgileriniGüncelle_Load(object sender, EventArgs e)
         {
+            DatabaseHelper dbHelper = new DatabaseHelper();
+            var sahaBilgileri = dbHelper.GetSahaBilgileri();
 
+            if (sahaBilgileri != null)
+            {
+                // Null checking before accessing properties
+                comboBox1.Text = sahaBilgileri.SehirAdi ?? string.Empty;
+                textBox2.Text = sahaBilgileri.IlceAdi ?? string.Empty;
+                textBox3.Text = sahaBilgileri.SahaAdi ?? string.Empty;
+            }
+            else
+            {
+                MessageBox.Show("Saha bilgileri bulunamadı!", "Uyarı",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -48,5 +63,38 @@ namespace HalisahaApp
             loginPanel.Show();
             this.Close();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DatabaseHelper dbHelper = new DatabaseHelper();
+            // Validasyon kontrolleri
+            if (string.IsNullOrEmpty(comboBox1.Text) ||
+                string.IsNullOrEmpty(textBox2.Text) ||
+                string.IsNullOrEmpty(textBox3.Text))
+            {
+                MessageBox.Show("Lütfen tüm alanları doldurunuz!", "Uyarı",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Güncelleme işlemi
+            bool success = dbHelper.UpdateSahaBilgileri(
+                comboBox1.Text,
+                textBox2.Text,
+                textBox3.Text
+            );
+
+            if (success)
+            {
+                MessageBox.Show("Saha bilgileri başarıyla güncellendi!", "Başarılı",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Güncelleme işlemi başarısız oldu!", "Hata");
+            }
+
+        }
+
     }
 }

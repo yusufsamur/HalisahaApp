@@ -24,9 +24,6 @@ namespace HalisahaApp
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SahaRezervasyonlarım rezervasyonlarım = new SahaRezervasyonlarım();
-            this.Hide();
-            rezervasyonlarım.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

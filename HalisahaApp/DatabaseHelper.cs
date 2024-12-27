@@ -526,5 +526,95 @@ namespace HalisahaApp
     }
 }
 
+        // DatabaseHelper.cs içine eklenecek metodlar:
+
+        public class SahaBilgileri
+        {
+            public string SehirAdi { get; set; }
+            public string IlceAdi { get; set; }
+            public string SahaAdi { get; set; }
+        }
+
+        public SahaBilgileri GetSahaBilgileri()
+        {
+            SahaBilgileri sahaBilgileri = null;
+            int sahaId = GetSahaIdByUyeId();
+
+            if (sahaId != -1)
+            {
+                using (var conn = new NpgsqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = @"SELECT saha_sehir, saha_ilce, sahaadi 
+                               FROM sahalar 
+                               WHERE sahaid = @sahaId";
+
+                        using (var cmd = new NpgsqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@sahaId", sahaId);
+
+                            using (var reader = cmd.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    sahaBilgileri = new SahaBilgileri
+                                    {
+                                        SehirAdi = reader["saha_sehir"].ToString(),
+                                        IlceAdi = reader["saha_ilce"].ToString(),
+                                        SahaAdi = reader["sahaadi"].ToString()
+                                    };
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Saha bilgileri getirilirken bir hata oluştu: " + ex.Message,
+                            "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            return sahaBilgileri;
+        }
+
+        public bool UpdateSahaBilgileri(string sehir, string ilce, string sahaAdi)
+        {
+            int sahaId = GetSahaIdByUyeId();
+            if (sahaId == -1) return false;
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"UPDATE sahalar 
+                           SET saha_sehir = @sehir, 
+                               saha_ilce = @ilce,
+                               sahaadi = @sahaAdi
+                           WHERE sahaid = @sahaId";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@sehir", sehir);
+                        cmd.Parameters.AddWithValue("@ilce", ilce);
+                        cmd.Parameters.AddWithValue("@sahaAdi", sahaAdi);
+                        cmd.Parameters.AddWithValue("@sahaId", sahaId);
+
+                        int affectedRows = cmd.ExecuteNonQuery();
+                        return affectedRows > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Saha bilgileri güncellenirken bir hata oluştu: " + ex.Message,
+                        "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+        }
+
+
     }
 }
