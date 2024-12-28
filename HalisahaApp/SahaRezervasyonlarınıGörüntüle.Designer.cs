@@ -45,10 +45,10 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button6.Location = new System.Drawing.Point(681, 422);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
+            this.button6.Location = new System.Drawing.Point(908, 519);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(257, 43);
+            this.button6.Size = new System.Drawing.Size(343, 53);
             this.button6.TabIndex = 43;
             this.button6.Text = "Seçili Rezervasyonu Sil";
             this.button6.UseVisualStyleBackColor = false;
@@ -59,22 +59,21 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(431, 13);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(575, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(334, 30);
+            this.label1.Size = new System.Drawing.Size(375, 33);
             this.label1.TabIndex = 42;
             this.label1.Text = "Saha Rezervasyon Bilgileri";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(217, 42);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Location = new System.Drawing.Point(289, 52);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(721, 368);
+            this.dataGridView1.Size = new System.Drawing.Size(961, 453);
             this.dataGridView1.TabIndex = 41;
             // 
             // button4
@@ -84,10 +83,10 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Arial", 10.8F);
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.Location = new System.Drawing.Point(9, 151);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Location = new System.Drawing.Point(12, 186);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(179, 46);
+            this.button4.Size = new System.Drawing.Size(239, 57);
             this.button4.TabIndex = 46;
             this.button4.Text = "Saha Sahiplerini Görüntüle";
             this.button4.UseVisualStyleBackColor = false;
@@ -100,10 +99,10 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.Location = new System.Drawing.Point(9, 216);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Location = new System.Drawing.Point(12, 266);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(179, 40);
+            this.button5.Size = new System.Drawing.Size(239, 49);
             this.button5.TabIndex = 45;
             this.button5.Text = "Üyeleri Görüntüle";
             this.button5.UseVisualStyleBackColor = false;
@@ -115,10 +114,10 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(9, 426);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Location = new System.Drawing.Point(12, 524);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(157, 40);
+            this.button3.Size = new System.Drawing.Size(209, 49);
             this.button3.TabIndex = 44;
             this.button3.Text = "Çıkış";
             this.button3.UseVisualStyleBackColor = false;
@@ -126,10 +125,10 @@
             // 
             // SahaRezervasyonlarınıGörüntüle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.ClientSize = new System.Drawing.Size(946, 482);
+            this.ClientSize = new System.Drawing.Size(1261, 593);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
@@ -137,8 +136,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SahaRezervasyonlarınıGörüntüle";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Saha Rezervasyonlarını Görüntüle";
             this.Load += new System.EventHandler(this.SahaRezervasyonlarınıGörüntüle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

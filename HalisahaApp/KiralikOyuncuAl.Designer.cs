@@ -51,10 +51,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(218, 113);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(291, 139);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(245, 28);
+            this.label4.Size = new System.Drawing.Size(273, 32);
             this.label4.TabIndex = 30;
             this.label4.Text = "Kiralık oyuncu arayın";
             // 
@@ -65,10 +64,10 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.Location = new System.Drawing.Point(268, 348);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Location = new System.Drawing.Point(357, 428);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(199, 43);
+            this.button5.Size = new System.Drawing.Size(265, 53);
             this.button5.TabIndex = 29;
             this.button5.Text = "Oyuncu Ara";
             this.button5.UseVisualStyleBackColor = false;
@@ -79,10 +78,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(218, 244);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(291, 300);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 28);
+            this.label1.Size = new System.Drawing.Size(71, 32);
             this.label1.TabIndex = 28;
             this.label1.Text = "Saat";
             // 
@@ -102,10 +100,10 @@
             "20:00-21:00",
             "21:00-22:00",
             "22:00-23:00"});
-            this.comboBox3.Location = new System.Drawing.Point(356, 251);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox3.Location = new System.Drawing.Point(475, 309);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(105, 21);
+            this.comboBox3.Size = new System.Drawing.Size(139, 24);
             this.comboBox3.TabIndex = 27;
             // 
             // button4
@@ -115,10 +113,10 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.Location = new System.Drawing.Point(11, 270);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Location = new System.Drawing.Point(15, 332);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(179, 40);
+            this.button4.Size = new System.Drawing.Size(239, 49);
             this.button4.TabIndex = 26;
             this.button4.Text = "Kiralık Oyuncu Al";
             this.button4.UseVisualStyleBackColor = false;
@@ -131,10 +129,10 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(11, 404);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Location = new System.Drawing.Point(15, 497);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(157, 40);
+            this.button3.Size = new System.Drawing.Size(209, 49);
             this.button3.TabIndex = 25;
             this.button3.Text = "Çıkış";
             this.button3.UseVisualStyleBackColor = false;
@@ -147,10 +145,10 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(11, 198);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Location = new System.Drawing.Point(15, 244);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(179, 40);
+            this.button2.Size = new System.Drawing.Size(239, 49);
             this.button2.TabIndex = 24;
             this.button2.Text = "Kiralık Oyuncu Ol";
             this.button2.UseVisualStyleBackColor = false;
@@ -163,10 +161,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial", 12.2F);
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(11, 129);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(15, 159);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(179, 40);
+            this.button1.Size = new System.Drawing.Size(239, 49);
             this.button1.TabIndex = 23;
             this.button1.Text = "Rezervasyonlarım";
             this.button1.UseVisualStyleBackColor = false;
@@ -177,20 +175,19 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(218, 202);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(291, 249);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 28);
+            this.label3.Size = new System.Drawing.Size(57, 32);
             this.label3.TabIndex = 22;
             this.label3.Text = "İlçe";
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(356, 213);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox2.Location = new System.Drawing.Point(475, 262);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(105, 21);
+            this.comboBox2.Size = new System.Drawing.Size(139, 24);
             this.comboBox2.TabIndex = 21;
             // 
             // label2
@@ -198,10 +195,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(218, 165);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(291, 203);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 28);
+            this.label2.Size = new System.Drawing.Size(79, 32);
             this.label2.TabIndex = 20;
             this.label2.Text = "Şehir";
             // 
@@ -290,20 +286,21 @@
             "Yalova",
             "Yozgat",
             "Zonguldak"});
-            this.comboBox1.Location = new System.Drawing.Point(356, 172);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Location = new System.Drawing.Point(475, 212);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(105, 21);
+            this.comboBox1.Size = new System.Drawing.Size(139, 24);
             this.comboBox1.TabIndex = 19;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(494, 113);
+            this.dataGridView1.Location = new System.Drawing.Point(659, 139);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 47;
-            this.dataGridView1.Size = new System.Drawing.Size(440, 278);
+            this.dataGridView1.Size = new System.Drawing.Size(587, 342);
             this.dataGridView1.TabIndex = 33;
             // 
             // label6
@@ -311,19 +308,18 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(504, 82);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(672, 101);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(419, 28);
+            this.label6.Size = new System.Drawing.Size(470, 32);
             this.label6.TabIndex = 34;
             this.label6.Text = "Aradığınız kriterlere uygun oyuncular";
             // 
             // KiralikOyuncuAl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.ClientSize = new System.Drawing.Size(946, 482);
+            this.ClientSize = new System.Drawing.Size(1261, 593);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label4);
@@ -339,7 +335,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "KiralikOyuncuAl";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KiralikOyuncuAl";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

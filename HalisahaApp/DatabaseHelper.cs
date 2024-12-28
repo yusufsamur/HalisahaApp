@@ -12,7 +12,7 @@ namespace HalisahaApp
 {
     internal class DatabaseHelper
     {
-        private string connectionString = "Host=localhost;Username=postgres;Password=1234;Database=HaliSaha";
+        private string connectionString = "Host=localhost;Username=postgres;Password=qweasdx123;Database=HaliSaha";
         private static int loggedUserID;//neseye özgü değil sınıfa özgü olduğu için sabit kalıyor program içinde sayfalar değiştikçe değişmiyor
 
         public void resetuserID() {
