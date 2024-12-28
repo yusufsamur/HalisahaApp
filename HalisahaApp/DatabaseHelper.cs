@@ -321,6 +321,11 @@ namespace HalisahaApp
                         return true;
                     }
                 }
+                catch (PostgresException ex)
+                {
+                    MessageBox.Show(ex.MessageText); // Trigger'dan gelen hata mesajını göster
+                    return false;
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
