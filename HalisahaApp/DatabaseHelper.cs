@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using NpgsqlTypes;
 
 namespace HalisahaApp
 {
@@ -109,19 +110,33 @@ namespace HalisahaApp
                 try
                 {
                     conn.Open();
-                    string query = "INSERT INTO uyeler (kullanici_adi, sifre, eposta, tel_no, uyelik_turu) VALUES (@kullaniciAdi, @sifre, @eposta, @telNo, @uyelikTuru)";
 
+                    // Prepare the command to call the stored procedure
+                    string query = "CALL kullanici_ekle(@p_kullanici_adi, @p_sifre, @p_eposta, @p_tel_no, @p_uyelik_turu)";
                     using (var cmd = new NpgsqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@kullaniciAdi", kullaniciAdi);
-                        cmd.Parameters.AddWithValue("@sifre", sifre);
-                        cmd.Parameters.AddWithValue("@eposta", eposta);
-                        cmd.Parameters.AddWithValue("@telNo", telNo);
-                        cmd.Parameters.AddWithValue("@uyelikTuru", uyelikTuru);
+                        // Add parameters with appropriate types
+                        cmd.Parameters.AddWithValue("@p_kullanici_adi", NpgsqlDbType.Text, kullaniciAdi);
+                        cmd.Parameters.AddWithValue("@p_sifre", NpgsqlDbType.Text, sifre);
+                        cmd.Parameters.AddWithValue("@p_eposta", NpgsqlDbType.Text, eposta);
+                        cmd.Parameters.AddWithValue("@p_tel_no", NpgsqlDbType.Text, telNo);
+                        cmd.Parameters.AddWithValue("@p_uyelik_turu", NpgsqlDbType.Text, uyelikTuru);
 
+                        // Execute the command
                         cmd.ExecuteNonQuery();
-                        return true; // Başarıyla eklendi
+
+                        // Inform the user
+                        MessageBox.Show("Kullanıcı başarıyla eklendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return true; // Successfully added
                     }
+                }
+                catch (PostgresException ex)
+                {
+                    // Handle database-specific errors
+                    string errorMessage = "";
+                    errorMessage = "Veritabanı hatası: " + ex.MessageText;
+                    MessageBox.Show(errorMessage, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
                 catch (Exception ex)
                 {
@@ -148,7 +163,7 @@ namespace HalisahaApp
                     conn.Open();
 
                     // Sorgu
-                    string query = @"SELECT rezervasyonid, uye_adi, sahaadi, saha_sehir, saha_ilce, baslangic_saati, bitis_saati, gun
+                    string query = @"SELECT rezervasyonid, uye_adi, sahaadi, saha_sehir, saha_ilce,saha_tel_no, baslangic_saati, bitis_saati, gun
                              FROM reservation_view
                              WHERE uye_id = @loggedUserID";
 
@@ -305,19 +320,22 @@ namespace HalisahaApp
                 try
                 {
                     conn.Open();
-                    string query = @"
-                INSERT INTO rezervasyonlar (sahaid, uyeid, baslangic_saati, bitis_saati, gun)
-                VALUES (@sahaId, @uyeId, @baslangicSaati, @bitisSaati, @tarih)";
 
-                    using (var cmd = new NpgsqlCommand(query, conn))
+                    using (var cmd = new NpgsqlCommand())
                     {
-                        cmd.Parameters.AddWithValue("@sahaId", sahaId);
-                        cmd.Parameters.AddWithValue("@uyeId", loggedUserID);
-                        cmd.Parameters.AddWithValue("@baslangicSaati", baslangicSaati);
-                        cmd.Parameters.AddWithValue("@bitisSaati", bitisSaati);
-                        cmd.Parameters.AddWithValue("@tarih", tarih);
+                        cmd.Connection = conn;
+                        cmd.CommandText = "CALL add_rezervasyon(@sahaId, @uyeId, @baslangicSaati, @bitisSaati, @tarih)";
+                        cmd.CommandType = CommandType.Text;
+
+                        // Parametreleri ekliyoruz
+                        cmd.Parameters.Add("@sahaId", NpgsqlDbType.Integer).Value = sahaId;
+                        cmd.Parameters.Add("@uyeId", NpgsqlDbType.Integer).Value = loggedUserID;
+                        cmd.Parameters.Add("@baslangicSaati", NpgsqlDbType.Time).Value = baslangicSaati;
+                        cmd.Parameters.Add("@bitisSaati", NpgsqlDbType.Time).Value = bitisSaati;
+                        cmd.Parameters.Add("@tarih", NpgsqlDbType.Date).Value = tarih.Date;
 
                         cmd.ExecuteNonQuery();
+
                         return true;
                     }
                 }
@@ -341,20 +359,26 @@ namespace HalisahaApp
                 try
                 {
                     conn.Open();
-                    string query = @"
-                INSERT INTO sahalar (saha_sehir, saha_ilce, sahaadi, saha_yonetici_id) 
-                VALUES (@sehir, @ilce, @sahaAdi, @yoneticiId)";
-
-                    using (var cmd = new NpgsqlCommand(query, conn))
+                    using (var cmd = new NpgsqlCommand("CALL saha_ekle(@p_sehir, @p_ilce, @p_sahaadi, @p_saha_yonetici_id)", conn))
                     {
-                        cmd.Parameters.AddWithValue("@sehir", sehir);
-                        cmd.Parameters.AddWithValue("@ilce", ilce);
-                        cmd.Parameters.AddWithValue("@sahaAdi", sahaAdi);
-                        cmd.Parameters.AddWithValue("@yoneticiId", loggedUserID);
+                        // Parametreleri ekliyoruz
+                        cmd.Parameters.Add("@p_sehir", NpgsqlDbType.Text).Value = sehir;
+                        cmd.Parameters.Add("@p_ilce", NpgsqlDbType.Text).Value = ilce;
+                        cmd.Parameters.Add("@p_sahaadi", NpgsqlDbType.Text).Value = sahaAdi;
+                        cmd.Parameters.Add("@p_saha_yonetici_id", NpgsqlDbType.Integer).Value = loggedUserID; // loggedUserID yöneticinin ID'si
 
+                        // Prosedürü çalıştırıyoruz
                         cmd.ExecuteNonQuery();
+
                         return true; // Başarıyla eklendi
                     }
+                }
+                catch (PostgresException ex)
+                {           
+                    string errorMessage = "Veritabanı hatası: " + ex.MessageText;
+                    
+                    MessageBox.Show(errorMessage, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
                 catch (Exception ex)
                 {
@@ -370,22 +394,28 @@ namespace HalisahaApp
                 try
                 {
                     conn.Open();
-                    string query = @"
-                INSERT INTO kiralikoyuncular (uyeid, baslangic_saati, bitis_saati, gun, sehir, ilce)
-                VALUES (@uyeId, @baslangicSaati, @bitisSaati, @tarih, @sehir, @ilce)";
-
-                    using (var cmd = new NpgsqlCommand(query, conn))
+                    using (var cmd = new NpgsqlCommand("CALL kiralik_oyuncu_ilan_ekle(@p_uyeid, @p_baslangic_saati, @p_bitis_saati, @p_gun, @p_sehir, @p_ilce)", conn))
                     {
-                        cmd.Parameters.AddWithValue("@uyeId", loggedUserID);
-                        cmd.Parameters.AddWithValue("@baslangicSaati", baslangicSaati);
-                        cmd.Parameters.AddWithValue("@bitisSaati", bitisSaati);
-                        cmd.Parameters.AddWithValue("@tarih", tarih);
-                        cmd.Parameters.AddWithValue("@sehir", sehir);
-                        cmd.Parameters.AddWithValue("@ilce", ilce);
+                        // Parametreleri ekliyoruz
+                        cmd.Parameters.Add("@p_uyeid", NpgsqlDbType.Integer).Value = loggedUserID;
+                        cmd.Parameters.Add("@p_baslangic_saati", NpgsqlDbType.Time).Value = baslangicSaati;
+                        cmd.Parameters.Add("@p_bitis_saati", NpgsqlDbType.Time).Value = bitisSaati;
+                        cmd.Parameters.Add("@p_gun", NpgsqlDbType.Date).Value = tarih.Date;
+                        cmd.Parameters.Add("@p_sehir", NpgsqlDbType.Text).Value = sehir;
+                        cmd.Parameters.Add("@p_ilce", NpgsqlDbType.Text).Value = ilce;
 
                         cmd.ExecuteNonQuery();
                         return true;
                     }
+                }
+                catch (PostgresException ex)
+                {
+                    // Veritabanı hatalarını yakalama
+                    string errorMessage = "Veritabanı hatası: " + ex.MessageText;
+                    
+
+                    MessageBox.Show(errorMessage, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
                 catch (Exception ex)
                 {
@@ -771,33 +801,6 @@ namespace HalisahaApp
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }
