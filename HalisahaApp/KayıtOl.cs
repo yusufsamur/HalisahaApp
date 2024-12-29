@@ -80,6 +80,7 @@ namespace HalisahaApp
                 {
                     SahaEkle sahaekle = new SahaEkle();
                     dbHelper.setUserID(kullaniciAdi,sifre);
+                    DatabaseHelper.SetRoleName("saha_sahibi");
                     sahaekle.Show();
                     this.Close();
 

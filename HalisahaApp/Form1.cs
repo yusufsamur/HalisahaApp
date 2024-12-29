@@ -76,12 +76,14 @@ namespace HalisahaApp
                 if (uyelikTuru == "Oyuncu")
                 {
                     MessageBox.Show("Giriş başarılı! Oyuncu sayfasına yönlendiriliyorsunuz.");
+                    DatabaseHelper.SetRoleName("normal");
                     KullaniciAnasayfa oyuncuAnasayfa = new KullaniciAnasayfa();
                     oyuncuAnasayfa.Show();
                 }
                 else if (uyelikTuru == "Saha Yoneticisi")
                 {
                     MessageBox.Show("Giriş başarılı! Saha yöneticisi sayfasına yönlendiriliyorsunuz.");
+                    DatabaseHelper.SetRoleName("saha_sahibi");
                     SahaSahibiAnasayfa sahaAnasayfa = new SahaSahibiAnasayfa();
                     sahaAnasayfa.Show();
 
@@ -89,6 +91,7 @@ namespace HalisahaApp
                 else if(uyelikTuru == "admin") // admin ancak database üzerinden eklenebilecek
                 {
                     MessageBox.Show("Giriş başarılı! Admin sayfasına yönlendiriliyorsunuz.");
+                    DatabaseHelper.SetRoleName("admin");
                     AdminPanel adminPanel = new AdminPanel();
                     adminPanel.Show();
                 }
