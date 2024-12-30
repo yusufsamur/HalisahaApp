@@ -22,7 +22,9 @@ namespace HalisahaApp
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            SahaSahipleriniGörüntüle sahaSahipleriniGörüntüle = new SahaSahipleriniGörüntüle();
+            sahaSahipleriniGörüntüle.Show();
+            this.Close();
         }
 
         private void SahaRezervasyonlarınıGörüntüle_Load(object sender, EventArgs e)
@@ -93,6 +95,13 @@ namespace HalisahaApp
             {
                 MessageBox.Show("Lütfen silmek için bir rezervasyon seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ÜyeleriGörüntüle üyeleriGörüntüle = new ÜyeleriGörüntüle();
+            üyeleriGörüntüle.Show();
+            this.Close();
         }
     }
 }
